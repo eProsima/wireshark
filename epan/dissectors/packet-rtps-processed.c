@@ -316,7 +316,8 @@ static gint dissect_rtps_processed(
                     rtpsproc_tree_frame1,
                     rtps_version,
                     rtps_vendor_id,
-                    &guid);
+                    &guid,
+                    0,0,0);
 
             /*
              * Get the decrypted submessages and update the column information.
