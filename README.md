@@ -1,7 +1,7 @@
 About the RTPS-RTCP Wireshark Dissector
 ---------------------------------------
 
-This feature enables the ability to probe RTPS traffic over TCP. This data can be filtered with `rtcp_rtps`.
+This feature enables the ability to probe RTPS traffic over TCP. This data can be filtered with `rtps_rtcp`.
 At the beggining of the communication, there will exist control messages to OPEN, BIND, ACCEPT that belongs to the RTCP
 protocol.
 
