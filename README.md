@@ -1,3 +1,29 @@
+About the RTPS-RTCP Wireshark Dissector
+---------------------------------------
+
+This feature enables the ability to probe RTPS traffic over TCP. This data can be filtered with `rtps_rtcp`.
+At the beggining of the communication, there will exist control messages to OPEN, BIND, ACCEPT that belongs to the RTCP
+protocol.
+
+Make sure that the protocol is listed under the `Supported Protocols` in the `View` tab.
+
+Usually, one or more than one RTPS frames can be embarked in a single TCP frame stream.
+
+Notes:
+
+* When using WAN locators, the `LOCATOR_KIND_TCPv4` PID parameter can be visualized as a `IPv6` string. This is due to the
+`IPv4` WAN addres is parsed alongside with the `IPv4` LAN address, confusing the dissector.
+
+Caveats:
+
+* Decoding the content of the serialized payload is not supported yet.
+* It has been observed that the dissector struggles in dissecting the DATA field in large message payloads or high frequency topics.
+
+Compilation & Installation from sources
+---------------------------------------
+
+Follow this [environment setup & installation steps](https://www.wireshark.org/docs/wsdg_html_chunked/ChapterSetup.html#ChSetupUNIXBuildEnvironmentSetup).
+
 General Information
 -------------------
 

@@ -57,7 +57,24 @@ typedef struct _endpoint_guid {
 /* Process a submessage: used in packet-rtps-processed.c */
 extern void dissect_rtps_submessages(
     tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *rtps_tree,
-    guint16 version, guint16 vendor_id, endpoint_guid *guid);
+    guint16 version, guint16 vendor_id, endpoint_guid *guid, gint length, gint initial_offset, gboolean rtcp);
+
+/* RTCP CtrlPrtlMsgKind */
+#define BIND_CONNECTION_REQUEST                 (0xD1)
+#define BIND_CONNECTION_RESPONSE                (0xE1)
+#define OPEN_LOGICAL_PORT_REQUEST               (0xD2)
+#define OPEN_LOGICAL_PORT_RESPONSE              (0xE2)
+#define CHECK_LOGICAL_PORT_REQUEST              (0xD3)
+#define CHECK_LOGICAL_PORT_RESPONSE             (0xE3)
+#define KEEP_ALIVE_REQUEST                      (0xD4)
+#define KEEP_ALIVE_RESPONSE                     (0xE4)
+#define LOGICAL_PORT_IS_CLOSED_REQUEST          (0xD5)
+#define UNBIND_CONNECTION_REQUEST               (0xD6)
+
+/* RTCP Flags */
+#define Endianess                               (0x01)
+#define HasPayload                              (0x02)
+#define RequiresResponse                        (0x04)
 
 /* Information that the RTPS-VT protocol passes to RTPS-PROC */
 struct rtpsvt_data {
